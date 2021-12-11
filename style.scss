@@ -1,0 +1,354 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body {
+    font-size: 18px;
+    line-height: 22px;
+    background: #f3f3f3;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+    font-family: "Roboto", sans-serif;
+}
+
+// ---HEADER---
+
+.header {
+    background-image: url(/images/header-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 26px 0 66px;
+    &__top {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 36px;
+    }
+    &__logo {
+        margin-right: 120px;
+    }
+    &__nav {
+        max-width: 400px;
+        display: flex;
+        justify-content: space-between;
+        a {
+            color: #fff;
+            font-weight: 300;
+        }
+    }
+    &__number {
+        text-align: right;
+        font-weight: 300;
+        a {
+            color: #fff;
+            font-size: 24px;
+            line-height: 29px;
+            font-weight: bold;
+        }
+    }
+    &__bottom {
+        font-weight: bold;
+        font-size: 38px;
+        line-height: 46px;
+    }
+}
+
+// ---CONTENT---
+
+.content {
+	margin-bottom: 80px;
+    &__buttons {
+        padding: 37px 0 37px;
+        span {
+            font-weight: bold;
+            margin-right: 50px;
+        }
+    }
+    &__button {
+        padding-right: 30px;
+        margin-right: 50px;
+        position: relative;
+        cursor: pointer;
+        font-weight: 300;
+        &::after {
+            content: url(./images/buttons-icon.png);
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            top: 3px;
+            right: 0;
+        }
+    }
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 68px;
+    }
+    &__show {
+        display: block;
+        margin: 0 auto;
+        padding: 24px 129px;
+        border: 1px solid #cacaca;
+        border-radius: 10px;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 17px;
+		cursor: pointer;
+    }
+}
+
+.card {
+    width: 380px;
+    position: relative;
+    &__inner {
+        padding: 30px;
+        background-color: #e5e5e5;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    &__info {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+        margin-bottom: 20px;
+        border-left: 4px solid #6ebbd3;
+        padding-left: 15px;
+    }
+    &__color {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+    }
+    &__age,
+    &__foots {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        div {
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+    &__price {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+    }
+    &__button {
+        width: 100%;
+        text-align: center;
+        padding: 20px 55px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 16px;
+        border-radius: 0 0 20px 20px;
+        cursor: pointer;
+    }
+    .buy {
+        background-color: #6ebbd3;
+    }
+    .saled {
+        background-color: #1f2021;
+    }
+}
+
+.sale {
+    position: absolute;
+    padding: 10px 19px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+    background-color: #e52d2d;
+    border-radius: 10px;
+    top: 35px;
+    left: 35px;
+}
+
+.like {
+    position: absolute;
+    background-image: url(./images/like.png);
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 41px;
+    top: 35px;
+    right: 35px;
+    opacity: 0.5;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.liked {
+    position: absolute;
+    background-image: url(./images/like.png);
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 41px;
+    top: 35px;
+    right: 35px;
+    cursor: pointer;
+}
+
+
+// ---FOOTER---
+
+.footer {
+	background-color: #1F2021;
+	color: #fff;
+	&__inner {
+		padding: 85px 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__title {
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 58px;
+		margin-bottom: 20px;
+	}
+	&__text {
+		font-weight: 300;
+		font-size: 28px;
+		max-width: 300px;
+	}
+	&__input {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+		input {
+			padding: 22px 33px;
+			width: 300px;
+			font-size: 14px;
+			border-radius: 10px;
+			margin-right: 15px;
+			border: none;
+			&::placeholder {
+				color: #000;
+			}
+		}
+		button {
+			padding: 22px 75px;
+			color: #fff;
+			background-color: #6EBBD3;
+			font-weight: bold;
+			font-size: 14px;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+	}
+	&__checkbox {
+		font-weight: 300;
+		font-size: 16px;
+		
+		input {
+			margin-right: 22px;
+			
+		}
+	}
+}
+
